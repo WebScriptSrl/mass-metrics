@@ -1,0 +1,211 @@
+.mainSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.codeBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+}
+
+.twoTilesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.2);
+}
+
+.fullGridItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.2);
+  border-radius: 1rem;
+}
+
+.addressInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.2);
+}
+
+.creditsBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.stakersContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 0.925rem;
+
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.stakingInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.2);
+}
+
+.rank {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  background-color: rgba(var(--callout-rgb), 0.2);
+}
+
+.statusContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.2);
+}
+
+.info {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: orange;
+}
+
+.infoSmall {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: orange;
+}
+
+.ok {
+  color: green;
+  font-size: 1.125rem;
+}
+
+.warning {
+  color: red;
+}
+
+.code > p {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.code > p > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lastCyclesInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius: 1rem;
+}
+
+@media (min-width: 1120px) {
+  .mainSection {
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem;
+    border-radius: 10px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    min-height: 100vh;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: var(--max-width);
+  }
+
+  .fullGridItem {
+    flex-direction: column;
+  }
+
+  .halffGridItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .addressInfo {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .twoTilesContainer {
+    gap: 10rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1120px) {
+  .mainSection {
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
+    border-radius: 10px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    min-height: 100vh;
+  }
+
+  .addressInfo {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}

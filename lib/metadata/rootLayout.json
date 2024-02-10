@@ -1,0 +1,48 @@
+{
+  "title": {
+    "default": "Mass Metrix - Massa staking metrics",
+    "template": "Mass Metrix"
+  },
+  "description": "Metrics for Massa blockchain node runners - validators - stakers. Real time data on Massa blockchain staking.",
+  "author": [
+    {
+      "name": "Calin Codes",
+      "url": "https://calin.codes"
+    },
+    {
+      "name": "WebScript",
+      "url": "https://webscript.ro"
+    }
+  ],
+  "openGraph": {
+    "title": "Mass Metrix - Massa staking metrics",
+    "description": "Metrics for Massa blockchain node runners - validators - stakers. Real time data on Massa blockchain staking.",
+    "type": "website",
+    "locale": "en_US",
+    "url": "https://massmetrix.net",
+    "site_name": "Mass Metrix",
+    "images": [
+      {
+        "url": "/images/opengraph-image.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "Mass Metrix logo"
+      }
+    ]
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@massmetrix",
+    "creator": "@Mass_Metrix",
+    "title": "Mass Metrix - Massa staking metrics",
+    "description": "Metrics for Massa blockchain node runners - validators - stakers. Real time data on Massa blockchain staking.",
+    "images": [
+      {
+        "url": "/images/twitter-image.jpg",
+        "width": 1024,
+        "height": 512,
+        "alt": "Mass Metrix logo"
+      }
+    ]
+  }
+}
