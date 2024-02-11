@@ -57,8 +57,8 @@ export default async function Product({
             <li>Rolls Info</li>
             <li>Deferred (vested) credits - time left</li>
             <li>Rolls share percentage</li>
-            <li>Next recoreded blocks for production</li>
-            <li>Next recoreded endorsements</li>
+            <li>Next recorded blocks for production</li>
+            <li>Next recorded endorsements</li>
             <li>Missed blocks</li>
             <li>Total stakers</li>
             <li>Last Cycles Info</li>
