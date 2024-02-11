@@ -27,12 +27,12 @@ export const { RPC_VERSION } = process.env || "2.0";
 export const PUBLIC_ENDPOINT =
   NODE_ENV === "development"
     ? `http://${DEV_HOST}:${DEV_PUBLIC_PORT}`
-    : `${HOST}:${PUBLIC_PORT}`;
+    : `http://${HOST}:${PUBLIC_PORT}`;
 
 export const PRIVATE_ENDPOINT =
   NODE_ENV === "development"
     ? `http://${DEV_HOST}:${DEV_PRIVATE_PORT}`
-    : `${HOST}:${PRIVATE_PORT}`;
+    : `http://${HOST}:${PRIVATE_PORT}`;
 
 export async function fetchData<T>({
   cache,
@@ -43,6 +43,7 @@ export async function fetchData<T>({
   id,
   revalidate,
   tags,
+  endpoint,
 }: {
   cache?: RequestCache;
   headers?: HeadersInit;
@@ -52,10 +53,8 @@ export async function fetchData<T>({
   id: number;
   revalidate?: number;
   tags?: string[];
+  endpoint: string;
 }): Promise<{ body: T } | never> {
-  const endpoint =
-    NODE_ENV === "development" ? PUBLIC_ENDPOINT : PRIVATE_ENDPOINT;
-
   try {
     const result = await fetch(endpoint, {
       method: "POST",
@@ -95,6 +94,7 @@ export async function getStakers(): Promise<StakersResult> {
     id: allStakersQuery.id,
     revalidate: allStakersQuery.revalidate,
     tags: allStakersQuery.tags,
+    endpoint: PUBLIC_ENDPOINT,
   });
 
   return result.body;
@@ -110,6 +110,7 @@ export async function getPagedStakers(
     params: [{ limit, offset }],
     id: allStakersQuery.id,
     revalidate: allStakersQuery.revalidate,
+    endpoint: PUBLIC_ENDPOINT,
   });
 
   return result.body;
@@ -125,6 +126,7 @@ export async function getAddresses(
     id: addressesQuery.id,
     revalidate: addressesQuery.revalidate,
     tags: addressesQuery.tags,
+    endpoint: PUBLIC_ENDPOINT,
   });
 
   return result.body;
@@ -142,6 +144,7 @@ export async function getNextBlockDraws(
     id: nextDrawsQuery.id,
     revalidate: nextDrawsQuery.revalidate,
     tags: nextDrawsQuery.tags,
+    endpoint: PUBLIC_ENDPOINT,
   });
 
   const nextBlocks = result.body.result.map((data) => {
@@ -161,6 +164,7 @@ export async function getNextEndorsementsDraws(
     id: nextDrawsQuery.id,
     revalidate: nextDrawsQuery.revalidate,
     tags: nextDrawsQuery.tags,
+    endpoint: PUBLIC_ENDPOINT,
   });
 
   const nextBlocks = result.body.result.map((data) => {
@@ -182,6 +186,7 @@ export async function getCyclesInfo(
     id: cycleQuery.id,
     revalidate: cycleQuery.revalidate,
     tags: cycleQuery.tags,
+    endpoint: PUBLIC_ENDPOINT,
   });
 
   const cycles = result.body.result.map((data) => {
@@ -196,6 +201,7 @@ export async function getCyclesInfo(
 export async function getStatus(): Promise<StatusResult> {
   const result = await fetchData<StatusResult>({
     ...statusQuery,
+    endpoint: PUBLIC_ENDPOINT,
   });
 
   return result.body;
@@ -204,6 +210,7 @@ export async function getStatus(): Promise<StatusResult> {
 export async function statusActiveCursor(): Promise<Slot> {
   const result = await fetchData<StatusResult>({
     ...statusQuery,
+    endpoint: PUBLIC_ENDPOINT,
   });
 
   const activeCursor = result.body.result.execution_stats.active_cursor;

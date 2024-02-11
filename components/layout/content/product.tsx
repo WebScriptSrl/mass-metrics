@@ -1,40 +1,34 @@
 import styles from "@/components/layout/content/content.module.css";
 
-import { getStakers } from "@/lib/data";
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+
 import { shortenAddress, formatNumber } from "@/lib/utils";
 import CopyButton from "@/components/copyButton";
+import { StakersResult } from "@/lib/data/types";
 
-const { MASSA_ADDRESS, MASSA_SPONSOR_ADDRESS } = process.env;
+export default async function Product({
+  res,
+  MASSA_ADDRESS,
+  MASSA_SPONSOR_ADDRESS,
+}: {
+  res: StakersResult;
+  MASSA_ADDRESS: string;
+  MASSA_SPONSOR_ADDRESS: string;
+}) {
+  const stakers = res.result.length;
 
-export default async function Product() {
-  let stakers = 0;
-  let totalRolls = 0;
-  let addressIndex = 0;
-  let addressRolls = 0;
+  const totalRolls = res.result.reduce(
+    (a: number, b: Array<number>) => a + b[1],
+    0
+  );
 
-  // Get total stakers
-  stakers = await getStakers().then((data) => {
-    return data?.result.length;
-  });
+  const addressIndex = res.result
+    .map(function (item: Array<string>) {
+      return item.find((address) => address === MASSA_ADDRESS);
+    })
+    .indexOf(MASSA_ADDRESS);
 
-  // Calculate total rolls
-  totalRolls = await getStakers().then((data) => {
-    return data?.result.reduce((a: number, b: Array<number>) => a + b[1], 0);
-  });
-
-  // Find index of specific array
-  addressIndex = await getStakers().then((data) => {
-    return data?.result
-      .map(function (item: Array<string>) {
-        return item.find((address) => address === MASSA_ADDRESS);
-      })
-      .indexOf(MASSA_ADDRESS);
-  });
-
-  // Get address rolls from index
-  addressRolls = await getStakers().then((data) => {
-    return data?.result[addressIndex][1];
-  });
+  const addressRolls = res.result[addressIndex][1];
 
   const addressRank = addressIndex ? addressIndex + 1 : null;
 
@@ -52,9 +46,9 @@ export default async function Product() {
         <div>
           <h2>How it works?</h2>
           <ul className={styles.code}>
+            <li>Data is revalidated every 10s!</li>
             <li>Simply search your Massa staking address.</li>
             <li>Or, spy other validators addresses to get an idea!</li>
-            <li>No need to refresh the page!</li>
           </ul>
 
           <h2>What data?</h2>
