@@ -8,8 +8,8 @@ export default function SearchLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
       <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
-    </main>
+    </div>
   );
 }

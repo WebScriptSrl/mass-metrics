@@ -8,8 +8,10 @@ import { DeferredCredits } from "../massa/deferred-credits";
 import { NextBlockDraws } from "../massa/next-blocks";
 import { CyclesInfo } from "../massa/cycles-info";
 import { NextEndorsementDraws } from "../massa/next-endorsements";
+import Link from "next/link";
+import NavButton from "../navButton";
 
-export async function AddressesTile({
+export function AddressesTile({
   active,
   response,
 }: {
@@ -56,15 +58,25 @@ export async function AddressesTile({
                 </span>
               </p>
             </div>
+            <span className={styles.separator} />
 
             {data.deferred_credits.length > 0 && (
               <div className={styles.creditsBox}>
                 <h3>Deferred credits</h3>
                 <DeferredCredits active={active} response={addressesRes} />
+                <NavButton
+                  href="/data/all-credits"
+                  from="/data/address"
+                  address={data.address}
+                  text="View all"
+                />
               </div>
             )}
+            <span className={styles.separator} />
             <NextBlockDraws response={data.next_block_draws} />
+            <span className={styles.separator} />
             <NextEndorsementDraws response={data.next_endorsement_draws} />
+            <span className={styles.separator} />
             <CyclesInfo cycles={data.cycle_infos} />
           </div>
         ))}

@@ -43,7 +43,89 @@
   box-shadow: 0 0 0 2px rgba(var(--callout-border-rgb), 0.2);
 }
 
+.nodeInputContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nodeInputContainer:first-child {
+  width: 65%;
+}
+
+.nodeInputContainer:last-child {
+  width: 35%;
+}
+
+.searchIpForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 550px;
+}
+
+.searchIpInput {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 20px;
+  border: none;
+  border-radius: 0.725rem;
+  background-color: rgba(var(--callout-rgb), 0.4);
+  font-size: 1rem;
+  font-weight: 300;
+  transition: all 0.2s;
+}
+
+.searchPortInput {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 20px;
+  border: none;
+  border-radius: 0.725rem;
+  background-color: rgba(var(--callout-rgb), 0.4);
+  font-size: 1rem;
+  font-weight: 300;
+  transition: all 0.2s;
+}
+
+.searchIpInput::placeholder {
+  font-weight: 300;
+}
+
+.searchIpInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--callout-border-rgb), 0.2);
+}
+
+.searchPortInput::placeholder {
+  font-weight: 300;
+}
+
+.searchPortInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--callout-border-rgb), 0.2);
+}
+
+.searchIpButton {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 .searchButton > svg {
+  height: calc(100% - 15px);
+}
+
+.searchIpButton > svg {
   height: calc(100% - 15px);
 }
 
@@ -146,6 +228,12 @@
 
 .copyRight {
   margin-top: 2rem;
+}
+
+.infoSmall {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: orange;
 }
 
 /* Enable hover only on non-touch devices */

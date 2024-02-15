@@ -3,14 +3,19 @@ import styles from "@/components/grid/grid.module.css";
 import { ErrorResponse, StatusResult } from "@/lib/data/types";
 import { shortenAddress } from "@/lib/utils";
 import CopyButton from "../copyButton";
+import NodeSearch from "../layout/main/node-search";
 
 // TO DO: implement user based node status
 export async function StatusTile({
   active,
   response,
+  ip,
+  port,
 }: {
   active: boolean;
   response: StatusResult | ErrorResponse;
+  ip?: string;
+  port?: string;
 }) {
   const { MASSA_SPONSOR_ADDRESS } = process.env;
 
@@ -23,28 +28,28 @@ export async function StatusTile({
     );
   }
 
-  if (!statusRes.result) {
-    return <div>Node must be down, or public port not opened</div>;
+  if (resError.error) {
+    return (
+      <div className={styles.statusContainer}>{resError.error.message}</div>
+    );
+  }
+
+  if (!statusRes) {
+    return <div>Node might be down, or public port not opened</div>;
   }
 
   return (
     <div className={styles.statusContainer}>
-      <p className={styles.ok}>Available soon for your node!!!</p>
-      {/* Implement user based node info */}
-      <p>
-        Stay tuned! Follow us on{" "}
-        <a
-          href="https://twitter.com/Mass_Metrix"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.ok}
-        >
-          X aka Twitter
-        </a>{" "}
-      </p>
       <h3>Node Status</h3>
+      <NodeSearch />
       {statusRes && statusRes.result && (
         <>
+          <p>
+            IP: <span>{ip}</span>
+          </p>
+          <p>
+            Port: <span>{port}</span>
+          </p>
           <p>
             Version:{" "}
             <span className={styles.info}>{statusRes?.result.version}</span>

@@ -17,37 +17,39 @@ async function getData() {
   try {
     const res: StakersResult = await getStakers();
     return res;
-  } catch (error) {
-    console.error("Error fetching data", error);
-    return null;
+  } catch (error: any) {
+    console.error("Get stakers - Home", error.message);
   }
 }
 
 export default async function Home() {
   const res = await getData();
   return (
-    <main className={styles.main}>
-      <Header />
+    <>
+      <main className={styles.main}>
+        <Header />
+        <SmallBanner />
 
-      <SmallBanner />
+        <div className={styles.center}>
+          <Hero />
+        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          {MASSA_ADDRESS && MASSA_SPONSOR_ADDRESS && res && (
+            <Product
+              res={res}
+              MASSA_ADDRESS={MASSA_ADDRESS}
+              MASSA_SPONSOR_ADDRESS={MASSA_SPONSOR_ADDRESS}
+            />
+          )}
 
-      <div className={styles.center}>
-        <Hero />
-      </div>
-      <Suspense fallback={<div>Loading...</div>}>
-        {MASSA_ADDRESS && MASSA_SPONSOR_ADDRESS && res !== null && (
-          <Product
-            res={res}
-            MASSA_ADDRESS={MASSA_ADDRESS}
-            MASSA_SPONSOR_ADDRESS={MASSA_SPONSOR_ADDRESS}
-          />
-        )}
-      </Suspense>
-      <div className={styles.center}>
-        <div className={styles.code}></div>
-      </div>
+          {!res && <div>Loading...</div>}
+        </Suspense>
+        <div className={styles.center}>
+          <div className={styles.code}></div>
+        </div>
 
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </>
   );
 }

@@ -4,10 +4,12 @@ import styles from "@/components/massa/massa.module.css";
 
 import { useState, useEffect } from "react";
 
-import { calculateRemainingTime, msToTime, tick } from "@/lib/utils";
+import { calculateRemainingTime, msToTime } from "@/lib/utils";
 
 export function Time({ period, thread }: { period: number; thread: number }) {
   const [time, setTime] = useState(0);
+
+  const date = calculateRemainingTime({ period, thread }).date;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,8 +21,8 @@ export function Time({ period, thread }: { period: number; thread: number }) {
 
   return (
     <>
-      {/* <span>{date?.toDateString()}</span> */}
       <span className={styles.info}>{msToTime(time)}</span>
+      <span className={styles.ok}>{date?.toDateString()}</span>
     </>
   );
 }

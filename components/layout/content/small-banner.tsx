@@ -12,7 +12,7 @@ export function SmallBanner() {
   return (
     <div className={styles.smallBanner}>
       <div className={styles.code}>
-        <p>First release: 0.1.0</p>
+        <p>V.0.2.1</p>
       </div>
 
       <div className={styles.code}>

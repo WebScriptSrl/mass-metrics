@@ -198,10 +198,16 @@ export async function getCyclesInfo(
 
 // Status API response
 
-export async function getStatus(): Promise<StatusResult> {
+export async function getStatus({
+  ip,
+  port,
+}: {
+  ip: string;
+  port: string;
+}): Promise<StatusResult> {
   const result = await fetchData<StatusResult>({
     ...statusQuery,
-    endpoint: PUBLIC_ENDPOINT,
+    endpoint: `http://${ip}:${port}`,
   });
 
   return result.body;

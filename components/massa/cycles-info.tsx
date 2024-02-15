@@ -2,7 +2,7 @@ import styles from "@/components/massa/massa.module.css";
 
 import { CycleInfos } from "@/lib/data/types";
 
-import { calculateBlocks, formatNumber } from "@/lib/utils";
+import { formatNumber } from "@/lib/utils";
 
 export function CyclesInfo({ cycles }: { cycles: CycleInfos[] }) {
   // Order the cycles by cycle number

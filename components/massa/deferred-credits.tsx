@@ -4,7 +4,7 @@ import { AddressesResult } from "@/lib/data/types";
 import { formatNumber } from "@/lib/utils";
 import { Time } from "./time";
 
-export async function DeferredCredits({
+export function DeferredCredits({
   active = false,
   response,
 }: {

@@ -138,3 +138,12 @@ export type ConsensusStats = {
 export type ConnectedNodes = {
   node_id: Array<string & boolean>;
 };
+
+// Database types
+
+export type DeferredCredit = {
+  amount: string;
+  period: number;
+  thread: number;
+  deferredCreditId: string;
+};

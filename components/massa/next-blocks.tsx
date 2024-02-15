@@ -4,11 +4,11 @@ import clsx from "clsx";
 
 import styles from "@/components/massa/massa.module.css";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import { NextDraws } from "@/lib/data/types";
 import { revalidateData } from "@/lib/data/actions";
-import { Time } from "./time";
+import { constants } from "@/lib/data/constants";
 
 export function NextBlockDraws({ response }: { response: NextDraws[] }) {
   useEffect(() => {
@@ -25,16 +25,33 @@ export function NextBlockDraws({ response }: { response: NextDraws[] }) {
       <h4>
         Next {response.length > 1 || response.length < 1 ? "Blocks" : "Block"}
       </h4>
-      {drawsNum > 0 && (
-        <p className={styles.textSmall}>
-          Found: <span className={styles.infoSmall}>{drawsNum}</span>. Showing{" "}
-          <span className={styles.infoSmall}>
-            {drawsNum > 5 ? "the first 5" : drawsNum}
-          </span>
-          .
-        </p>
-      )}
-      {drawsNum === 0 && <p className={styles.infoSmall}>Unlucky</p>}
+
+      <div className={styles.drawsInfo}>
+        {drawsNum < 6 && drawsNum > 0 && (
+          <p className={styles.textSmall}>
+            Found: <span className={styles.infoSmall}>{drawsNum}</span>.
+          </p>
+        )}
+        {drawsNum > 5 && (
+          <p className={styles.textSmall}>
+            Found: <span className={styles.infoSmall}>{drawsNum}</span>. Showing{" "}
+            <span className={styles.infoSmall}>
+              {drawsNum > 5 ? "the next 5" : drawsNum}
+            </span>
+            .
+          </p>
+        )}
+        {drawsNum === 0 && <p className={styles.infoSmall}>Unlucky</p>}
+        {drawsNum > 0 && (
+          <p className={styles.textSmall}>
+            Possible reward{" "}
+            <span className={styles.infoSmall}>
+              ~{(constants.blockReward * drawsNum).toFixed(2)} $MAS{" "}
+            </span>
+          </p>
+        )}
+      </div>
+
       <div className={styles.nextDrawsContainer}>
         {response.length > 0 &&
           response.slice(0, 5).map((data, i) => (

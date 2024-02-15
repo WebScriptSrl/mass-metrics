@@ -20,6 +20,8 @@ export default function Hero() {
         </span>
       </h1>
       <p className={styles.code}>Real time data for Massa Stakers!</p>
+      <p className={styles.code}>Check all deferred (vested) credits</p>
+      <p className={styles.code}>Check your Node Status simple and easy!</p>
       <p className={styles.code}>
         Spy other validators to get an idea of what you can achieve!
       </p>

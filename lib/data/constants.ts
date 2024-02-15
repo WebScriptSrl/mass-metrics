@@ -1,4 +1,8 @@
 // From Massa
+const defaultPublicPort = "33035";
+
+const endorsementReward = 0.02;
+const blockReward = 0.7;
 
 const genesisTimestamp = 1705312800000;
 
@@ -21,6 +25,9 @@ const blocksPerSecond = 2;
 const blocksPerCycle = (cycleTime / 1000) * blocksPerSecond;
 
 export const constants = {
+  defaultPublicPort,
+  endorsementReward,
+  blockReward,
   genesisTimestamp,
   threads,
   slot,

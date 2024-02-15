@@ -37,7 +37,7 @@ export default function Footer() {
           <h2>
             Explorer <span>-&gt;</span>
           </h2>
-          <p>Massa blockchain offical explorer.</p>
+          <p>Massa blockchain official explorer.</p>
         </a>
 
         <a

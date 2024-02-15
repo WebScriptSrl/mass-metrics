@@ -1,7 +1,5 @@
 import styles from "@/components/layout/content/content.module.css";
 
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-
 import { shortenAddress, formatNumber } from "@/lib/utils";
 import CopyButton from "@/components/copyButton";
 import { StakersResult } from "@/lib/data/types";
@@ -49,25 +47,25 @@ export default async function Product({
             <li>Data is revalidated every 10s!</li>
             <li>Simply search your Massa staking address.</li>
             <li>Or, spy other validators addresses to get an idea!</li>
+            <li>Search your Node IP and PORT to get the status</li>
           </ul>
 
           <h2>What data?</h2>
           <ul className={styles.code}>
-            <li>Address Rank</li>
-            <li>Rolls Info</li>
-            <li>Deferred (vested) credits - time left</li>
+            <li>Node Status</li>
+            <li>Staking info</li>
+            <li>All deferred (vested) credits - time left</li>
             <li>Rolls share percentage</li>
-            <li>Next recorded blocks for production</li>
-            <li>Next recorded endorsements</li>
+            <li>Next recorded draws</li>
             <li>Missed blocks</li>
-            <li>Total stakers</li>
             <li>Last Cycles Info</li>
           </ul>
         </div>
-        <div>
+        <div className={styles.code}>
           <h2>Node Status</h2>
-          <p>Still under development! But is going to come soon!</p>
-          <p>Stay tuned and follow MassMetrix on social media</p>
+          <p>Set your node IP address</p>
+          <p>Set up your opened PORT or let the default</p>
+          <p>Monitor your Node Status</p>
           {MASSA_SPONSOR_ADDRESS && (
             <p className={styles.howToSupport}>
               We have a lot of ideas! And if you want to support our

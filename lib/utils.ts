@@ -48,6 +48,12 @@ export const pasteFromClipboard = async () => {
   return text;
 };
 
+// Scroll into view
+export const scrollToElement = (element: string) => {
+  const el = document.getElementById(element);
+  el?.scrollIntoView({ behavior: "smooth" });
+};
+
 // Metadata
 
 const metadata = (target: string) => {
@@ -132,4 +138,20 @@ export const calculateBlocks = (cycles: Array<CycleInfos>) => {
     missedBlocks,
     cyclesNum,
   };
+};
+
+// Ip address validation
+
+export const isIpV4 = (ip: string) => {
+  const ipV4Arr = ip.split(".");
+  if (ipV4Arr.length !== 4) return false;
+  return ipV4Arr.every(
+    (segment) => parseInt(segment) >= 0 && parseInt(segment) <= 255
+  );
+};
+
+export const isIpV6 = (ip: string) => {
+  const ipV6Arr = ip.split(":");
+  if (ipV6Arr.length !== 8) return false;
+  return ipV6Arr.every((segment) => segment.length <= 4);
 };
