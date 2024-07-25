@@ -16,11 +16,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const dataRoute = `${baseUrl}/data/address`;
+  const allCredits = `${baseUrl}/all-credits`;
 
-  routesMap.push({
-    url: dataRoute,
-    lastModified: new Date().toISOString(),
-  });
+  routesMap.push(
+    {
+      url: dataRoute,
+      lastModified: new Date().toISOString(),
+    },
+    {
+      url: allCredits,
+      lastModified: new Date().toISOString(),
+    }
+  );
 
   return [...routesMap];
 }

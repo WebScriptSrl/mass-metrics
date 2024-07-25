@@ -17,7 +17,7 @@ export async function StatusTile({
   ip?: string;
   port?: string;
 }) {
-  const { MASSA_SPONSOR_ADDRESS } = process.env;
+  const { MASSA_SPONSOR_MNS } = process.env;
 
   const resError = response as ErrorResponse;
   const statusRes = response as StatusResult;
@@ -107,14 +107,13 @@ export async function StatusTile({
           </div>
         </>
       )}
-      <h4 className={styles.info}>Support our development!</h4>
-      {MASSA_SPONSOR_ADDRESS && (
+
+      {MASSA_SPONSOR_MNS && (
         <div className={styles.code}>
           <p className={styles.warning}>
-            Massa Address:{" "}
+            🍵
             <span className={styles.info}>
-              {shortenAddress(MASSA_SPONSOR_ADDRESS)}{" "}
-              <CopyButton text={MASSA_SPONSOR_ADDRESS} />
+              {MASSA_SPONSOR_MNS} <CopyButton text={MASSA_SPONSOR_MNS} />
             </span>
           </p>
         </div>

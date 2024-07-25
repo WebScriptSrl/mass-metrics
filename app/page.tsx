@@ -11,7 +11,7 @@ import Hero from "@/components/layout/content/hero";
 import Product from "@/components/layout/content/product";
 import { SmallBanner } from "@/components/layout/content/small-banner";
 
-const { MASSA_ADDRESS, MASSA_SPONSOR_ADDRESS } = process.env;
+const { MASSA_ADDRESS, MASSA_SPONSOR_MNS } = process.env;
 
 async function getData() {
   try {
@@ -34,11 +34,11 @@ export default async function Home() {
           <Hero />
         </div>
         <Suspense fallback={<div>Loading...</div>}>
-          {MASSA_ADDRESS && MASSA_SPONSOR_ADDRESS && res && (
+          {MASSA_ADDRESS && MASSA_SPONSOR_MNS && res && (
             <Product
               res={res}
               MASSA_ADDRESS={MASSA_ADDRESS}
-              MASSA_SPONSOR_ADDRESS={MASSA_SPONSOR_ADDRESS}
+              MASSA_SPONSOR_MNS={MASSA_SPONSOR_MNS}
             />
           )}
 

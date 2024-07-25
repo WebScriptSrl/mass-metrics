@@ -7,11 +7,11 @@ import { StakersResult } from "@/lib/data/types";
 export default async function Product({
   res,
   MASSA_ADDRESS,
-  MASSA_SPONSOR_ADDRESS,
+  MASSA_SPONSOR_MNS,
 }: {
   res: StakersResult;
   MASSA_ADDRESS: string;
-  MASSA_SPONSOR_ADDRESS: string;
+  MASSA_SPONSOR_MNS: string;
 }) {
   const stakers = res.result.length;
 
@@ -66,16 +66,15 @@ export default async function Product({
           <p>Set your node IP address</p>
           <p>Set up your opened PORT or let the default</p>
           <p>Monitor your Node Status</p>
-          {MASSA_SPONSOR_ADDRESS && (
+          {MASSA_SPONSOR_MNS && (
             <p className={styles.howToSupport}>
-              We have a lot of ideas! And if you want to support our
-              development:{" "}
+              Buy us a coffee! 🍵{" "}
               <span className={styles.code}>
-                You can do that at the following $MASSA address:
+                You can do that at the following $MASSA domain:{" "}
               </span>{" "}
               <span className={styles.massaAddress}>
-                {shortenAddress(MASSA_SPONSOR_ADDRESS)}
-                <CopyButton text={MASSA_SPONSOR_ADDRESS} />
+                {MASSA_SPONSOR_MNS}
+                <CopyButton text={MASSA_SPONSOR_MNS} />
               </span>
             </p>
           )}

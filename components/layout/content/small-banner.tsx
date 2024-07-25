@@ -1,26 +1,24 @@
 import styles from "@/components/layout/content/content.module.css";
 
 import CopyButton from "@/components/copyButton";
-import { shortenAddress } from "@/lib/utils";
 import IconX from "@/components/icons/x-icon";
 import FacebookIcon from "@/components/icons/facebook";
 import InstagramIcon from "@/components/icons/instagram";
 
-const { MASSA_SPONSOR_ADDRESS } = process.env;
+const { MASSA_SPONSOR_MNS } = process.env;
 
 export function SmallBanner() {
   return (
     <div className={styles.smallBanner}>
       <div className={styles.code}>
-        <p>V.0.2.1</p>
+        <p>V.0.2.2</p>
       </div>
 
       <div className={styles.code}>
-        <p>Support the project</p>
-        {MASSA_SPONSOR_ADDRESS && (
+        {MASSA_SPONSOR_MNS && (
           <span className={styles.code}>
-            {shortenAddress(MASSA_SPONSOR_ADDRESS)}
-            <CopyButton text={MASSA_SPONSOR_ADDRESS} />
+            {MASSA_SPONSOR_MNS}
+            <CopyButton text={MASSA_SPONSOR_MNS} />
           </span>
         )}
       </div>
