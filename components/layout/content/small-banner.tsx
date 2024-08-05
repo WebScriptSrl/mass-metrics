@@ -11,7 +11,7 @@ export function SmallBanner() {
   return (
     <div className={styles.smallBanner}>
       <div className={styles.code}>
-        <p>V.0.2.2</p>
+        <p>V.0.2.3</p>
       </div>
 
       <div className={styles.code}>

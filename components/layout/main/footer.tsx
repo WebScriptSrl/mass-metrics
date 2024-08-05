@@ -5,51 +5,51 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.grid}>
         <a
-          href="https://massa.net/"
+          href="https://github.com/calyn05/next-auto-rolls.git"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Massa website <span>-&gt;</span>
+            Auto roll buy <span>-&gt;</span>
           </h2>
-          <p>Find in-depth information about Massa blockchain.</p>
+          <p>Auto roll buy app with dashboard.</p>
         </a>
 
         <a
-          href="https://docs.massa.net/"
+          href="https://app.dusa.io/trade?ref=7s3w3p"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Discover Massa <span>-&gt;</span>
+            Dusa DEX <span>-&gt;</span>
           </h2>
-          <p>Learn about Massa on chain web with&nbsp;tutorials!</p>
+          <p>First DEX on Massa blockchain&nbsp; - Start now!</p>
         </a>
 
         <a
-          href="https://explorer.massa.net/mainnet"
+          href="https://www.mexc.com/register?inviteCode=123Wwm"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Explorer <span>-&gt;</span>
+            MEXC Exchange <span>-&gt;</span>
           </h2>
-          <p>Massa blockchain official explorer.</p>
+          <p>Trade Massa - $MAS on MEXC exchange.</p>
         </a>
 
         <a
-          href="https://docs.massa.net/docs/node/home"
+          href="https://share.bitget.com/u/5VSDGH70"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Deploy a Node <span>-&gt;</span>
+            BitGet Exchange <span>-&gt;</span>
           </h2>
-          <p>Learn how to deploy your Massa validator Node.</p>
+          <p>Trade Massa - $MAS on BitGet exchange.</p>
         </a>
       </div>
       <div>

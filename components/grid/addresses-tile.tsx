@@ -58,6 +58,18 @@ export function AddressesTile({
                 </span>
               </p>
             </div>
+
+            <a
+              href="https://github.com/calyn05/next-auto-rolls.git"
+              className={styles.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p>
+                Auto roll buy <span>-&gt;</span>
+              </p>
+            </a>
+
             <span className={styles.separator} />
 
             {data.deferred_credits.length > 0 && (

@@ -72,10 +72,11 @@ export async function StakersTile({
               Address rank{" "}
               <span className={styles.info}>{formatNumber(addressRank)}</span>
             </p>
-            <p>
-              With{" "}
-              <span className={styles.info}>{formatNumber(addressRolls)} </span>{" "}
-              active rolls
+            <p className={styles.codeBox}>
+              Active rolls
+              <span className={styles.info}>
+                {formatNumber(addressRolls)}{" "}
+              </span>{" "}
             </p>
             <p>
               Address is in the top{" "}
