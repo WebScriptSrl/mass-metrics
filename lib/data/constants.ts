@@ -1,8 +1,25 @@
-// From Massa
+// From Massa Docs
 const defaultPublicPort = "33035";
 
-const endorsementReward = 0.02;
-const blockReward = 0.7;
+const fullBlockReward = 0.4;
+const endorsementsNumber = 16; // 16 endorsements per block
+const equalParts = 1 + endorsementsNumber;
+
+// Best case scenario: 1 block + 16 endorsements
+// Validators can miss blocks and endorsements
+// but we assume they are always present for reward calculation
+// so we can calculate the maximum reward per block
+// This is the maximum reward for a block with 16 endorsements
+
+const blockCreationReward = fullBlockReward / equalParts;
+const endorsementCreationReward = blockCreationReward / 3;
+
+const blockReward =
+  blockCreationReward +
+  endorsementCreationReward * endorsementsNumber +
+  endorsementCreationReward * endorsementsNumber;
+
+const endorsementReward = endorsementCreationReward;
 
 const genesisTimestamp = 1705312800000;
 
